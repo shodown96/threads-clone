@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
+// Base plugin config needed by Next.js
+const { pluginoptions } = require('@mightymeld/runtime');
+
 const nextConfig = {
   experimental: {
     serverActions: true,
     serverComponentsExternalPackages: ["mongoose"],
+    swcPlugins: [['@mightymeld/runtime/swc-plugin-mightymeld', pluginoptions()]]
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
